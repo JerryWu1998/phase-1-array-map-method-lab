@@ -12,5 +12,22 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(element => upFirstLetter(element));
+}
+
+function upFirstLetter(strings) {
+  let result = '';
+  let toUp = true;
+  for (let s of strings) {
+    if (toUp === true) {
+      result += s.toUpperCase();
+      toUp = false;
+    } else if (s === ' ') {
+      result += s;
+      toUp = true;
+    } else {
+      result += s;
+    }
+  }
+  return result;
 }
